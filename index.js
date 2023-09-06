@@ -45,7 +45,7 @@ app.use(
       // maxAge: 1000 * 60 * 100, //time for which cookie is valid
       // sameSite: "lax", //restricts cross site access to cookie
       sameSite: "none",
-      secure: false,
+      secure: true,
       httpOnly: true, //cookie cannot be accessed by client side script
       // domain: "http://localhost:3000",
     },
