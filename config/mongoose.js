@@ -1,6 +1,11 @@
+//import mongoose
 const mongoose = require("mongoose");
+const dotenv = require("dotenv").config();
 
-mongoose.connect("mongodb://0.0.0.0:27017/palcement_cell");
+//create database connection
+mongoose.connect(
+  process.env.MONGODB || "mongodb://0.0.0.0:27017/palcement_cell"
+);
 
 const db = mongoose.connection;
 
