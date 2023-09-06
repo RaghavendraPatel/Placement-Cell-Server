@@ -20,7 +20,8 @@ app.use(express.json());
 
 const cors = require("cors");
 const corsOptions = {
-  origin: "http://localhost:3000",
+  // origin: "http://localhost:3000",
+  origin: "https://placement-cell-raghavendra.netlify.app/signin",
   credentials: true,
   optionSuccessStatus: 200,
 };
