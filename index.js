@@ -43,10 +43,10 @@ app.use(
     resave: false,
     cookie: {
       // maxAge: 1000 * 60 * 100, //time for which cookie is valid
-      sameSite: "lax", //restricts cross-site access
+      sameSite: "lax", //restricts cross site access to cookie
       secure: false,
       httpOnly: true, //cookie cannot be accessed by client side script
-      // domain: "http://localhost:3000",
+      domain: "http://localhost:3000",
     },
   })
 );
