@@ -79,7 +79,7 @@ module.exports.delete = async function (req, res) {
     // });
     if (interview.students.length > 0) {
       return res.status(400).json({
-        message: "Interview has students",
+        message: "Can not delete interview, Interview has students",
       });
     }
     await Interview.findByIdAndDelete(req.params.id);
