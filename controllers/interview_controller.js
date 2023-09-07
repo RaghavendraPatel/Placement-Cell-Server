@@ -71,11 +71,12 @@ module.exports.create = async function (req, res) {
 module.exports.delete = async function (req, res) {
   try {
     const interview = Interview.findById(req.params.id);
-    if (interview.students.length > 0) {
-      return res.status(400).json({
-        message: "Interview has students",
-      });
-    }
+    console.log(interview);
+    // if (interview.students.length > 0) {
+    //   return res.status(400).json({
+    //     message: "Interview has students",
+    //   });
+    // }
     await Interview.findByIdAndDelete(req.params.id);
     return res.status(200).json({
       message: "Interview deleted",
