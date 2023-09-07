@@ -72,11 +72,11 @@ module.exports.delete = async function (req, res) {
   try {
     const interview = Interview.findById(req.params.id);
     console.log(interview);
-    // if (interview.students.length > 0) {
-    //   return res.status(400).json({
-    //     message: "Interview has students",
-    //   });
-    // }
+    interview.students.forEach(async (student) => {
+      await Student.findByIdAndUpdate(student.student, {
+        $pull: { interviews: { interview: req.params.id } },
+      });
+    });
     await Interview.findByIdAndDelete(req.params.id);
     return res.status(200).json({
       message: "Interview deleted",
