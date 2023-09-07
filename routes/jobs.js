@@ -11,6 +11,6 @@ const router = express.Router();
 
 //create routes and assign action
 router.get("/", jobController.getJobs);
-router.get("/search", jobController.searchJobs);
+router.post("/search", jobController.searchJobs);
 
 module.exports = router;
