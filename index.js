@@ -10,6 +10,7 @@ const session = require("express-session");
 const passport = require("passport");
 const passportLocal = require("./config/passport-local-strategy");
 
+//import dotenv for environment variables
 const dotenv = require("dotenv").config();
 
 const cookieParser = require("cookie-parser");
@@ -17,11 +18,10 @@ const cookieParser = require("cookie-parser");
 const jwt = require("jsonwebtoken");
 
 app.use(express.json());
-
+//set up cors to allow us to accept requests from our client
 const cors = require("cors");
 const corsOptions = {
-  origin: "http://localhost:3000",
-  // origin: "https://placement-cell-raghavendra.netlify.app",
+  origin: process.env.CORS_ORIGIN || "http://localhost:3000",
   credentials: true,
   optionSuccessStatus: 200,
 };
@@ -36,6 +36,7 @@ app.use(
 app.use(cookieParser());
 app.use(express.static("./assets"));
 
+//configure session cookie
 app.use(
   session({
     name: "employee", //name of cookie

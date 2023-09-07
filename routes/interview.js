@@ -1,9 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const passport = require("passport");
-
+//import controllers
 const interviewController = require("../controllers/interview_controller");
-
+//create routes and assign action
 router.get(
   "/",
   passport.checkAuthentication,
