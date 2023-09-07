@@ -98,6 +98,15 @@ module.exports.addStudent = async function (req, res) {
   try {
     let interview = await Interview.findById(req.params.id);
     let student = await Student.findOne({ email: req.body.email });
+    const check = await Interview.findOne({
+      _id: req.params.id,
+      "students.student": student._id,
+    });
+    if (check) {
+      return res.status(400).json({
+        message: "Student already exists in interview",
+      });
+    }
     let studentObject = { student: student._id, result: req.body.result };
     let interviewObject = {
       interview: interview._id,
